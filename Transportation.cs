@@ -11,10 +11,14 @@ namespace LabRab2
             double resultAll = 0;
 
              this.ForEach(e =>
-           {
-               ITotalCost totalCost = e as ITotalCost;
-               resultAll += totalCost.GetTotalCost();
-           });
+            {
+                ITotalCost totalCost = e as ITotalCost;
+                if (totalCost != null)
+                {
+                    resultAll += totalCost.GetTotalCost();
+                }
+                else Console.WriteLine("Вы ввели недопустимые значения");
+            });
             return resultAll;
         }
     }
